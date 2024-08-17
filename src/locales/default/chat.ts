@@ -37,6 +37,23 @@ export default {
     stop: '停止',
     warp: '换行',
   },
+  knowledgeBase: {
+    all: '所有内容',
+    allFiles: '所有文件',
+    allKnowledgeBases: '所有知识库',
+    library: {
+      action: {
+        add: '添加',
+        detail: '详情',
+        remove: '移除',
+      },
+      title: '文件/知识库',
+    },
+    relativeFilesOrKnowledgeBases: '关联文件/知识库',
+    title: '知识库',
+    uploadGuide: '上传过的文件可以在「知识库」中查看哦',
+    viewMore: '查看更多',
+  },
   messageAction: {
     delAndRegenerate: '删除并重新生成',
     regenerate: '重新生成',
@@ -44,6 +61,14 @@ export default {
   newAgent: '新建助手',
   pin: '置顶',
   pinOff: '取消置顶',
+  rag: {
+    userQuery: {
+      actions: {
+        delete: '删除 Query 重写',
+        regenerate: '重新生成 Query',
+      },
+    },
+  },
   regenerate: '重新生成',
   roleAndArchive: '角色与记录',
   searchAgentPlaceholder: '搜索助手和对话...',
@@ -133,5 +158,12 @@ export default {
     actionFiletip: '上传文件',
     actionTooltip: '上传图片',
     disabled: '当前模型不支持视觉识别和文件分析，请切换模型后使用',
+    preview: {
+      prepareTasks: '准备分块...',
+      status: {
+        pending: '准备上传...',
+        processing: '文件处理中...',
+      },
+    },
   },
 };

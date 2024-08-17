@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { FilesStoreState } from '../../initialState';
+import { FilesStoreState, initialState } from '../../initialState';
 import { filesSelectors } from './selectors';
 
 describe('filesSelectors', () => {
@@ -9,6 +9,7 @@ describe('filesSelectors', () => {
   beforeEach(() => {
     // 创建并初始化 state 的模拟实例
     state = {
+      ...initialState,
       imagesMap: {
         '1': {
           id: '1',
@@ -27,7 +28,6 @@ describe('filesSelectors', () => {
           url: 'url2',
         },
       },
-      uploadingIds: [],
       // 假设 '3' 是不存在的 ID
       inputFilesList: ['1', '2', '3'],
     };

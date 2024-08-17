@@ -26,7 +26,14 @@ const getImageUrlOrBase64ByList = (idList: string[]) => (s: FilesStoreState) =>
     url: string;
   }[];
 
-const imageUrlOrBase64List = (s: FilesStoreState) => getImageUrlOrBase64ByList(s.inputFilesList)(s);
+const imageUrlOrBase64List = (s: FilesStoreState) => {
+  const imageList = s.chatUploadFileList.filter((i) => i.file.type.startsWith('image'));
+
+  return imageList.map((item) => {
+    // TODO: 还要判断下是 base64 的情况
+    return { id: item.id, url: item.fileUrl as string };
+  });
+};
 
 const isImageUploading = (s: FilesStoreState) => s.uploadingIds.length > 0;
 

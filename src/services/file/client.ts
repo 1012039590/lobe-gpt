@@ -12,7 +12,14 @@ export class ClientService implements IFileService {
   async createFile(file: DB_File) {
     // save to local storage
     // we may want to save to a remote server later
-    return FileModel.create(file);
+    const res = await FileModel.create(file);
+    // arrayBuffer to url
+    const base64 = Buffer.from(file.data!).toString('base64');
+
+    return {
+      id: res.id,
+      url: `data:${file.fileType};base64,${base64}`,
+    };
   }
 
   async getFile(id: string): Promise<FilePreview> {
@@ -51,6 +58,10 @@ export class ClientService implements IFileService {
 
   async removeFile(id: string) {
     return FileModel.delete(id);
+  }
+
+  async removeFiles(ids: string[]) {
+    await Promise.all(ids.map((id) => FileModel.delete(id)));
   }
 
   async removeAllFiles() {

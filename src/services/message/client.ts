@@ -2,9 +2,15 @@ import dayjs from 'dayjs';
 
 import { MessageModel } from '@/database/client/models/message';
 import { DB_Message } from '@/database/client/schemas/message';
-import { ChatMessage, ChatMessageError, ChatTTS, ChatTranslate } from '@/types/message';
+import {
+  ChatMessage,
+  ChatMessageError,
+  ChatTTS,
+  ChatTranslate,
+  CreateMessageParams,
+} from '@/types/message';
 
-import { CreateMessageParams, IMessageService } from './type';
+import { IMessageService } from './type';
 
 export class ClientService implements IMessageService {
   async createMessage(data: CreateMessageParams) {

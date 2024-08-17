@@ -13,8 +13,9 @@ export const edgeClient = createTRPCClient<EdgeRouter>({
 
         return createHeaderWithAuth();
       },
+      maxURLLength: 2083,
       transformer: superjson,
-      url: withBasePath('/trpc/edge'),
+      url: withBasePath('/trpc/edge'), // a suitable size
     }),
   ],
 });

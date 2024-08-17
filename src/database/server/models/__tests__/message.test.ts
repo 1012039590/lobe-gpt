@@ -5,11 +5,11 @@ import { getTestDBInstance } from '@/database/server/core/dbForTest';
 
 import {
   files,
-  filesToMessages,
   messagePlugins,
   messageTTS,
   messageTranslates,
   messages,
+  messagesFiles,
   sessions,
   topics,
   users,
@@ -202,7 +202,7 @@ describe('MessageModel', () => {
           .insert(messageTTS)
           .values([{ id: '1' }, { id: '2', voice: 'a', fileId: 'f-1', contentMd5: 'abc' }]);
 
-        await trx.insert(filesToMessages).values([
+        await trx.insert(messagesFiles).values([
           { fileId: 'f-0', messageId: '1' },
           { fileId: 'f-3', messageId: '1' },
         ]);

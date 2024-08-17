@@ -37,7 +37,7 @@ describe('chatToolSlice', () => {
 
       vi.spyOn(imageGenerationService, 'generateImage').mockResolvedValue(mockUrl);
       vi.spyOn(uploadService, 'uploadImageByUrl').mockResolvedValue({} as any);
-      vi.spyOn(fileService, 'createFile').mockResolvedValue({ id: mockId });
+      vi.spyOn(fileService, 'createFile').mockResolvedValue({ id: mockId, url: '' });
       vi.spyOn(result.current, 'toggleDallEImageLoading');
 
       await act(async () => {
